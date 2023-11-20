@@ -14,7 +14,7 @@ class ProfilePageView extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 12, bottom: 12, left: 34, right: 20),
+            margin: const EdgeInsets.only(top: 12, bottom: 12, left: 10, right: 10),
             child: Row(
               children: [
                 Expanded(
@@ -23,16 +23,17 @@ class ProfilePageView extends StatelessWidget {
                     color: Colors.grey.shade900,
                     elevation: 7,
                     child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 11, horizontal: 12),
+                      padding: const EdgeInsets.symmetric(vertical: 11, horizontal: 5),
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                       ),
                       child: Row(
                         children: [
-                          RandomAvatar(
-                            DateTime.now().toIso8601String(),
-                            height: 60,
-                            width: 60,
+                          Container(
+                            child: CircleAvatar(
+                              radius: 60,
+                              backgroundImage: AssetImage('assest/images/avatars/avatar1.png'),
+                            ),
                           ),
                           const Gap(24),
                           Expanded(
@@ -43,7 +44,7 @@ class ProfilePageView extends StatelessWidget {
                                     Expanded(
                                       child: Text(
                                         "ibrahim AL-harbi",
-                                        style: Theme.of(context).textTheme.displayLarge!.copyWith(color: Colors.white),
+                                        style: Theme.of(context).textTheme.displayLarge!.copyWith(color: Colors.white, fontSize: 18),
                                       ),
                                     ),
                                   ],
