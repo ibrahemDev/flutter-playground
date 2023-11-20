@@ -1,0 +1,14 @@
+targets:
+  $default:
+    builders:
+
+
+      auto_route_generator:auto_route_generator:
+        
+        generate_for:
+          
+          include:
+            - lib/ui/**/app_route.dart
+            - lib/ui/**/**.route.dart
+          exclude:
+            - lib/apps/**/**.dart
