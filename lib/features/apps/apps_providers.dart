@@ -18,7 +18,7 @@ final appsList = Provider<List<AppModel>>(
     const AppModel(
       name: "Car Booking",
       description: "",
-      designSource: "",
+      designSource: "https://www.figma.com/community/file/1291131202073146570/car-booking-app",
       source: "",
       img: "assest/apps/car_booking/images/app_icon.png",
       forgroundColor: "#FFFFFF",

@@ -19,7 +19,7 @@ Future<void> main() async {
   //WidgetsBinding.instance.handlePlatformBrightnessChanged
   runApp(
     DevicePreview(
-      enabled: false,
+      enabled: true,
       builder: (BuildContext context) {
         return ProviderScope(
           parent: mainContainer,
