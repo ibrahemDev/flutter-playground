@@ -5,7 +5,7 @@ import 'package:flutter_playground/apps/fresh_basket/features/prodacts/models/pr
 import 'package:flutter_playground/apps/fresh_basket/features/prodacts/repositores/prodact_repository.dart';
 import 'package:flutter_playground/apps/fresh_basket/features/prodacts/services/prodact_service.dart';
 import 'package:flutter_playground/apps/fresh_basket/features/prodacts/states/prodacts_notifier.dart';
-import 'package:flutter_playground/features/shared_prefs_storage/shared_prefs_storage_providers.dart';
+import 'package:flutter_playground/features/shared_prefs_storage/providers/shared_preferences_repository_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // prodact Repository Provider

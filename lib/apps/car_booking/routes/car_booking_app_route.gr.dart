@@ -9,49 +9,6 @@
 
 part of 'car_booking_app_route.dart';
 
-abstract class _$CarBookingAppRoute extends RootStackRouter {
-  // ignore: unused_element
-  _$CarBookingAppRoute({super.navigatorKey});
-
-  @override
-  final Map<String, PageFactory> pagesMap = {
-    DetailsRoute.name: (routeData) {
-      final args = routeData.argsAs<DetailsRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: DetailsScreen(
-          key: args.key,
-          rentCarViewModel: args.rentCarViewModel,
-        ),
-      );
-    },
-    HomeScreenRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const HomeScreen(),
-      );
-    },
-    PaymentRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const PaymentScreen(),
-      );
-    },
-    SplashRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: SplashScreen(),
-      );
-    },
-    SucessRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: SucessScreen(),
-      );
-    },
-  };
-}
-
 /// generated route for
 /// [DetailsScreen]
 class DetailsRoute extends PageRouteInfo<DetailsRouteArgs> {
@@ -70,8 +27,16 @@ class DetailsRoute extends PageRouteInfo<DetailsRouteArgs> {
 
   static const String name = 'DetailsRoute';
 
-  static const PageInfo<DetailsRouteArgs> page =
-      PageInfo<DetailsRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<DetailsRouteArgs>();
+      return DetailsScreen(
+        key: args.key,
+        rentCarViewModel: args.rentCarViewModel,
+      );
+    },
+  );
 }
 
 class DetailsRouteArgs {
@@ -101,7 +66,12 @@ class HomeScreenRoute extends PageRouteInfo<void> {
 
   static const String name = 'HomeScreenRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const HomeScreen();
+    },
+  );
 }
 
 /// generated route for
@@ -115,7 +85,12 @@ class PaymentRoute extends PageRouteInfo<void> {
 
   static const String name = 'PaymentRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const PaymentScreen();
+    },
+  );
 }
 
 /// generated route for
@@ -129,7 +104,12 @@ class SplashRoute extends PageRouteInfo<void> {
 
   static const String name = 'SplashRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return SplashScreen();
+    },
+  );
 }
 
 /// generated route for
@@ -143,5 +123,10 @@ class SucessRoute extends PageRouteInfo<void> {
 
   static const String name = 'SucessRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return SucessScreen();
+    },
+  );
 }

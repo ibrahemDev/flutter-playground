@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/apps/car_booking/routes/car_booking_app_route.dart';
+import 'package:flutter_playground/routes/app_route.dart';
 
-import 'package:flutter_playground/ui/routes/app_route.dart';
+///import 'package:flutter_playground/ui/routes/app_route.dart' as mainRouter;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:random_avatar/random_avatar.dart';
 
-class ProfilePageView extends StatelessWidget {
+class ProfilePageView extends ConsumerWidget {
   const ProfilePageView({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -511,8 +512,10 @@ class ProfilePageView extends StatelessWidget {
                     child: InkWell(
                       borderRadius: const BorderRadius.all(Radius.circular(8)),
                       onTap: () {
-                        carBookingAppRouter.navigatorKey.currentState!.pop();
-                        appRouter.navigatorKey.currentState!.pop();
+                        //CarBookingAppRoute.currentRouter?.navigatorKey.currentState!.pop();
+                        //carBookingAppRouter.navigatorKey.currentState!.pop();
+
+                        ref.read(mainAppRouterProvider).navigatorKey.currentState!.pop();
                       },
                       child: Container(
                         margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),

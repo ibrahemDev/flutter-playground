@@ -17,10 +17,19 @@ class _FreshBasketSplashScreenState extends ConsumerState<FreshBasketSplashScree
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () async {
-      AutoRouter.of(context).pushAndPopUntil(
+      FreshBasketAppRouter.currentRouter?.pushAndPopUntil(
         const LoginRoute(),
         predicate: (_) => false,
       );
+
+      //ref.read(freshBasketAppRouterProvider).pushAndPopUntil(
+      //      const LoginRoute(),
+      //      predicate: (_) => false,
+      //    );
+      /*AutoRouter.of(context).pushAndPopUntil(
+        const LoginRoute(),
+        predicate: (_) => false,
+      );*/
     });
   }
 

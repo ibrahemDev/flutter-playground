@@ -9,49 +9,6 @@
 
 part of 'fresh_basket_app_route.dart';
 
-abstract class _$FreshBasketAppRoute extends RootStackRouter {
-  // ignore: unused_element
-  _$FreshBasketAppRoute({super.navigatorKey});
-
-  @override
-  final Map<String, PageFactory> pagesMap = {
-    FreshBasketHomeRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const FreshBasketHomeScreen(),
-      );
-    },
-    FreshBasketSplashRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const FreshBasketSplashScreen(),
-      );
-    },
-    LoginRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const LoginScreen(),
-      );
-    },
-    ProdactCategoryRoute.name: (routeData) {
-      final args = routeData.argsAs<ProdactCategoryRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: ProdactCategoryScreen(
-          key: args.key,
-          categoryModel: args.categoryModel,
-        ),
-      );
-    },
-    RegisterRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const RegisterScreen(),
-      );
-    },
-  };
-}
-
 /// generated route for
 /// [FreshBasketHomeScreen]
 class FreshBasketHomeRoute extends PageRouteInfo<void> {
@@ -63,7 +20,12 @@ class FreshBasketHomeRoute extends PageRouteInfo<void> {
 
   static const String name = 'FreshBasketHomeRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const FreshBasketHomeScreen();
+    },
+  );
 }
 
 /// generated route for
@@ -77,7 +39,12 @@ class FreshBasketSplashRoute extends PageRouteInfo<void> {
 
   static const String name = 'FreshBasketSplashRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const FreshBasketSplashScreen();
+    },
+  );
 }
 
 /// generated route for
@@ -91,7 +58,12 @@ class LoginRoute extends PageRouteInfo<void> {
 
   static const String name = 'LoginRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const LoginScreen();
+    },
+  );
 }
 
 /// generated route for
@@ -112,8 +84,16 @@ class ProdactCategoryRoute extends PageRouteInfo<ProdactCategoryRouteArgs> {
 
   static const String name = 'ProdactCategoryRoute';
 
-  static const PageInfo<ProdactCategoryRouteArgs> page =
-      PageInfo<ProdactCategoryRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<ProdactCategoryRouteArgs>();
+      return ProdactCategoryScreen(
+        key: args.key,
+        categoryModel: args.categoryModel,
+      );
+    },
+  );
 }
 
 class ProdactCategoryRouteArgs {
@@ -143,5 +123,10 @@ class RegisterRoute extends PageRouteInfo<void> {
 
   static const String name = 'RegisterRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const RegisterScreen();
+    },
+  );
 }

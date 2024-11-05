@@ -6,14 +6,16 @@ import 'package:flutter_playground/apps/fresh_basket/ui/screens/splash/splash_sc
 import 'package:flutter_playground/apps/fresh_basket/ui/screens/prodact_category/prodact_category_screen.route.dart';
 import 'package:flutter_playground/apps/fresh_basket/ui/screens/login/login_screen.route.dart';
 import 'package:flutter_playground/apps/fresh_basket/ui/screens/register/register_screen.route.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 part 'fresh_basket_app_route.gr.dart';
 
-final freshBasketAppRouter = FreshBasketAppRoute();
+final freshBasketAppRouterProvider = Provider<FreshBasketAppRouter>((ref) => throw UnimplementedError());
 
 @AutoRouterConfig(
   generateForDir: ["lib/apps/fresh_basket"],
 )
-class FreshBasketAppRoute extends _$FreshBasketAppRoute {
+class FreshBasketAppRouter extends RootStackRouter {
+  static FreshBasketAppRouter? currentRouter = null;
   @override
   RouteType get defaultRouteType => const RouteType.material(); //.cupertino, .adaptive ..etc
 

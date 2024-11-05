@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter_playground/features/theme_mode/repositories/theme_mode_repository.dart';
+import 'package:flutter_playground/features/shared_prefs_storage/repositories/shared_prefs_storage_repository.dart';
 
 class ThemeModeService {
-  final ThemeModeRepository themeModeRepository;
+  final SharedPrefsStorageRepository sharedPrefsStorageRepository;
+  //final ThemeModeRepository themeModeRepository;
 
-  ThemeModeService({required this.themeModeRepository});
+  ThemeModeService({required this.sharedPrefsStorageRepository});
 
   Future<void> init() async {}
   ThemeMode getThemeMode() {
-    int? themeModeIndex = themeModeRepository.getThemeMode();
+    int? themeModeIndex = sharedPrefsStorageRepository.getInt("themeMode");
     if (themeModeIndex == null) {
       return ThemeMode.system;
     }
@@ -17,6 +17,6 @@ class ThemeModeService {
   }
 
   Future<bool> setThemeMode(ThemeMode mode) async {
-    return await themeModeRepository.setThemeMode(mode.index);
+    return await sharedPrefsStorageRepository.setInt("themeMode", mode.index);
   }
 }

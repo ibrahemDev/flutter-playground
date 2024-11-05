@@ -1,5 +1,4 @@
 import 'package:flutter_playground/features/apps/models/app_model.dart';
-import 'package:flutter_playground/ui/screens/apps/car_booking/car_booking_app_screen.route.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -22,7 +21,7 @@ final appsList = Provider<List<AppModel>>(
       source: "",
       img: "assest/apps/car_booking/images/app_icon.png",
       forgroundColor: "#FFFFFF",
-      routePath: CarBookingAppScreen.routeName,
+      routePath: "",
     ),
   ],
 );

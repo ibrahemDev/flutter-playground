@@ -26,7 +26,8 @@ abstract class SharedPrefsStorageRepositoryImplementation {
   bool has(String key);
 }
 
-class SharedPrefsStorageRepository implements SharedPrefsStorageRepositoryImplementation {
+class SharedPrefsStorageRepository
+    implements SharedPrefsStorageRepositoryImplementation {
   final String prefix;
   final SharedPreferences pref;
   SharedPrefsStorageRepository(this.pref, {this.prefix = ''});
@@ -34,6 +35,9 @@ class SharedPrefsStorageRepository implements SharedPrefsStorageRepositoryImplem
   //Future<SharedPreferences> get _pref => GetIt.I.getAsync<SharedPreferences>();
 
   String fixKey(String key) {
+    if (prefix.isEmpty) {
+      return key;
+    }
     return "${prefix}_${key}";
   }
 

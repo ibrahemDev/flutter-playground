@@ -3,11 +3,6 @@ import 'package:flutter_playground/features/theme_mode/services/theme_mode_servi
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/*final _currentThemeState = FutureProvider<ThemeMode>((ref) async {
-  final getIt = ref.watch(mainGetItProvider);
-  return await getIt.get<ThemeModeService>().getThemeMode();
-});*/
-
 class ThemeModeNotifier extends StateNotifier<ThemeMode> {
   final ThemeModeService themeModeService;
   ThemeMode currentThemeMode;
@@ -41,7 +36,7 @@ class ThemeModeNotifier extends StateNotifier<ThemeMode> {
   }
 
   void getCurrentTheme() async {
-    final theme = await themeModeService.getThemeMode();
+    final theme = themeModeService.getThemeMode();
     state = theme;
   }
 }

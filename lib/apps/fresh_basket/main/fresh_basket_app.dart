@@ -15,8 +15,15 @@ class FreshBasketApp extends ConsumerStatefulWidget {
 class FreshBasketAppState extends ConsumerState<FreshBasketApp> {
   @override
   Widget build(BuildContext context) {
+    final freshBasketAppRouter = ref.read(freshBasketAppRouterProvider);
     //final themeMode = ref.watch(themeModeNotifier);
     return MaterialApp.router(
+      builder: (context, child) {
+        return SafeArea(
+          top: true,
+          child: child!,
+        );
+      },
       debugShowCheckedModeBanner: false,
       scrollBehavior: CustomScrollBehavior(),
       theme: FreshBasketAppTheme.lightTheme,

@@ -7,15 +7,17 @@ import 'package:flutter_playground/apps/car_booking/ui/screens/payment/payment_s
 
 import 'package:flutter_playground/apps/car_booking/ui/screens/splash/splash_screen.route.dart';
 import 'package:flutter_playground/apps/car_booking/ui/screens/sucess/sucess_screen.route.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 part 'car_booking_app_route.gr.dart';
 
-final carBookingAppRouter = CarBookingAppRoute();
+final carBookingAppRouterProvider = Provider<CarBookingAppRoute>((ref) => throw UnimplementedError());
 
 @AutoRouterConfig(
   generateForDir: ["lib/apps/car_booking"],
 )
-class CarBookingAppRoute extends _$CarBookingAppRoute {
+class CarBookingAppRoute extends RootStackRouter {
+  static CarBookingAppRoute? currentRouter = null;
   @override
   RouteType get defaultRouteType => const RouteType.material(); //.cupertino, .adaptive ..etc
 

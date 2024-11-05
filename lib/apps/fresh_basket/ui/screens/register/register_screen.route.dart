@@ -29,7 +29,8 @@ class RegisterScreen extends ConsumerWidget {
                         height: constraints.maxHeight / 4,
                         decoration: BoxDecoration(
                           image: const DecorationImage(
-                            image: AssetImage("assest/apps/fresh_basket/images/login.jfif"),
+                            image: AssetImage(
+                                "assest/apps/fresh_basket/images/login.jfif"),
                             fit: BoxFit.contain,
                           ),
                           color: Colors.transparent,
@@ -49,7 +50,10 @@ class RegisterScreen extends ConsumerWidget {
                         child: Center(
                           child: Text(
                             "Register",
-                            style: Theme.of(context).textTheme.displayLarge!.copyWith(color: Colors.green),
+                            style: Theme.of(context)
+                                .textTheme
+                                .displayLarge!
+                                .copyWith(color: Colors.green),
                           ),
                         ),
                       ),
@@ -58,17 +62,25 @@ class RegisterScreen extends ConsumerWidget {
                 ),
                 ProviderScope(
                   overrides: [
-                    RegisterNotifier.registerNotifierProvider.overrideWith((ref) => RegisterNotifier()),
+                    RegisterNotifier.registerNotifierProvider
+                        .overrideWith((ref) => RegisterNotifier()),
                   ],
                   child: Consumer(
                     builder: (context, ref2, child) {
-                      final registerFormState = ref2.watch(RegisterNotifier.registerNotifierProvider);
-                      final registerFormNotifier = ref2.read(RegisterNotifier.registerNotifierProvider.notifier);
-                      final isReadyForSubmit = registerFormState.submissionStatus.isInitial && registerFormState.isValid && registerFormState.inputs.every((element) => !element.isPure);
+                      final registerFormState =
+                          ref2.watch(RegisterNotifier.registerNotifierProvider);
+                      final registerFormNotifier = ref2.read(
+                          RegisterNotifier.registerNotifierProvider.notifier);
+                      final isReadyForSubmit =
+                          registerFormState.submissionStatus.isInitial &&
+                              registerFormState.isValid &&
+                              registerFormState.inputs
+                                  .every((element) => !element.isPure);
                       return Column(
                         children: [
                           Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 24, vertical: 10),
                             child: Column(
                               children: [
                                 Padding(
@@ -78,7 +90,9 @@ class RegisterScreen extends ConsumerWidget {
                                       Expanded(
                                         child: Text(
                                           "Email",
-                                          style: Theme.of(context).textTheme.bodyLarge,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge,
                                         ),
                                       ),
                                     ],
@@ -88,26 +102,42 @@ class RegisterScreen extends ConsumerWidget {
                                   children: [
                                     Expanded(
                                       child: TextField(
-                                        onChanged: (value) => registerFormNotifier.updateEmail(value),
-                                        keyboardType: TextInputType.emailAddress,
+                                        onChanged: (value) =>
+                                            registerFormNotifier
+                                                .updateEmail(value),
+                                        keyboardType:
+                                            TextInputType.emailAddress,
                                         decoration: InputDecoration(
-                                          errorText: registerFormState.email.error?.getMessage(),
-                                          contentPadding: const EdgeInsets.only(top: 8, bottom: 8, right: 7, left: 7),
+                                          errorText: registerFormState
+                                              .email.error
+                                              ?.getMessage(),
+                                          contentPadding: const EdgeInsets.only(
+                                              top: 8,
+                                              bottom: 8,
+                                              right: 7,
+                                              left: 7),
                                           border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(7.0),
+                                            borderRadius:
+                                                BorderRadius.circular(7.0),
                                           ),
                                           suffixIcon: const Icon(
                                             Icons.account_circle_outlined,
                                             color: Colors.black,
                                           ),
                                           filled: true,
-                                          hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                          hintStyle: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge!
+                                              .copyWith(
                                                 color: const Color(0xffD9D9D9),
                                               ),
                                           hintText: 'Email',
                                           fillColor: Colors.white70,
                                         ),
-                                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyLarge!
+                                            .copyWith(
                                               color: Colors.black,
                                             ),
                                         autofocus: false,
@@ -121,7 +151,8 @@ class RegisterScreen extends ConsumerWidget {
 
                           //First Name Text Field
                           Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 24, vertical: 10),
                             child: Column(
                               children: [
                                 Padding(
@@ -131,7 +162,9 @@ class RegisterScreen extends ConsumerWidget {
                                       Expanded(
                                         child: Text(
                                           "First Name",
-                                          style: Theme.of(context).textTheme.bodyLarge,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge,
                                         ),
                                       ),
                                     ],
@@ -141,22 +174,37 @@ class RegisterScreen extends ConsumerWidget {
                                   children: [
                                     Expanded(
                                       child: TextField(
-                                        onChanged: (value) => registerFormNotifier.updateFirstName(value),
+                                        onChanged: (value) =>
+                                            registerFormNotifier
+                                                .updateFirstName(value),
                                         keyboardType: TextInputType.name,
                                         decoration: InputDecoration(
-                                          errorText: registerFormState.firstName.error?.getMessage(),
-                                          contentPadding: const EdgeInsets.only(top: 8, bottom: 8, right: 7, left: 7),
+                                          errorText: registerFormState
+                                              .firstName.error
+                                              ?.getMessage(),
+                                          contentPadding: const EdgeInsets.only(
+                                              top: 8,
+                                              bottom: 8,
+                                              right: 7,
+                                              left: 7),
                                           border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(7.0),
+                                            borderRadius:
+                                                BorderRadius.circular(7.0),
                                           ),
                                           filled: true,
-                                          hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                          hintStyle: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge!
+                                              .copyWith(
                                                 color: const Color(0xffD9D9D9),
                                               ),
                                           hintText: 'First Name',
                                           fillColor: Colors.white70,
                                         ),
-                                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyLarge!
+                                            .copyWith(
                                               color: Colors.black,
                                             ),
                                         autofocus: false,
@@ -169,7 +217,8 @@ class RegisterScreen extends ConsumerWidget {
                           ),
                           //Last Name Text Field
                           Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 24, vertical: 10),
                             child: Column(
                               children: [
                                 Padding(
@@ -179,7 +228,9 @@ class RegisterScreen extends ConsumerWidget {
                                       Expanded(
                                         child: Text(
                                           "Last Name",
-                                          style: Theme.of(context).textTheme.bodyLarge,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge,
                                         ),
                                       ),
                                     ],
@@ -189,22 +240,37 @@ class RegisterScreen extends ConsumerWidget {
                                   children: [
                                     Expanded(
                                       child: TextField(
-                                        onChanged: (value) => registerFormNotifier.updateLastName(value),
+                                        onChanged: (value) =>
+                                            registerFormNotifier
+                                                .updateLastName(value),
                                         keyboardType: TextInputType.name,
                                         decoration: InputDecoration(
-                                          errorText: registerFormState.lastName.error?.getMessage(),
-                                          contentPadding: const EdgeInsets.only(top: 8, bottom: 8, right: 7, left: 7),
+                                          errorText: registerFormState
+                                              .lastName.error
+                                              ?.getMessage(),
+                                          contentPadding: const EdgeInsets.only(
+                                              top: 8,
+                                              bottom: 8,
+                                              right: 7,
+                                              left: 7),
                                           border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(7.0),
+                                            borderRadius:
+                                                BorderRadius.circular(7.0),
                                           ),
                                           filled: true,
-                                          hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                          hintStyle: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge!
+                                              .copyWith(
                                                 color: const Color(0xffD9D9D9),
                                               ),
                                           hintText: 'Last Name',
                                           fillColor: Colors.white70,
                                         ),
-                                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyLarge!
+                                            .copyWith(
                                               color: Colors.black,
                                             ),
                                         autofocus: false,
@@ -216,7 +282,8 @@ class RegisterScreen extends ConsumerWidget {
                             ),
                           ),
                           Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 24, vertical: 10),
                             child: Column(
                               children: [
                                 Padding(
@@ -226,7 +293,9 @@ class RegisterScreen extends ConsumerWidget {
                                       Expanded(
                                         child: Text(
                                           "Password",
-                                          style: Theme.of(context).textTheme.bodyLarge,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge,
                                         ),
                                       ),
                                     ],
@@ -236,37 +305,65 @@ class RegisterScreen extends ConsumerWidget {
                                   children: [
                                     Expanded(
                                       child: ProviderScope(
-                                        overrides: [showPasswordStateProvider.overrideWith((ref) => false)],
+                                        overrides: [
+                                          showPasswordStateProvider
+                                              .overrideWith((ref) => false)
+                                        ],
                                         child: Consumer(
                                           builder: (context, ref3, child) {
-                                            final bool showPasswordState = ref3.watch(showPasswordStateProvider);
-                                            final showPasswordNotifier = ref3.read(showPasswordStateProvider.notifier);
+                                            final bool showPasswordState =
+                                                ref3.watch(
+                                                    showPasswordStateProvider);
+                                            final showPasswordNotifier = ref3
+                                                .read(showPasswordStateProvider
+                                                    .notifier);
                                             return TextField(
-                                              onChanged: (value) => registerFormNotifier.updatePassword(value),
+                                              onChanged: (value) =>
+                                                  registerFormNotifier
+                                                      .updatePassword(value),
                                               obscureText: !showPasswordState,
                                               decoration: InputDecoration(
-                                                errorText: registerFormState.password.error?.getMessage(),
-                                                contentPadding: const EdgeInsets.only(top: 8, bottom: 8, right: 7, left: 7),
+                                                errorText: registerFormState
+                                                    .password.error
+                                                    ?.getMessage(),
+                                                contentPadding:
+                                                    const EdgeInsets.only(
+                                                        top: 8,
+                                                        bottom: 8,
+                                                        right: 7,
+                                                        left: 7),
                                                 border: OutlineInputBorder(
-                                                  borderRadius: BorderRadius.circular(7.0),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          7.0),
                                                 ),
                                                 suffixIcon: IconButton(
                                                   onPressed: () {
-                                                    showPasswordNotifier.update((state) => !state);
+                                                    showPasswordNotifier.update(
+                                                        (state) => !state);
                                                   },
                                                   icon: Icon(
-                                                    !showPasswordState ? Icons.visibility : Icons.visibility_off,
+                                                    !showPasswordState
+                                                        ? Icons.visibility
+                                                        : Icons.visibility_off,
                                                     color: Colors.black,
                                                   ),
                                                 ),
                                                 filled: true,
-                                                hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                                                      color: const Color(0xffD9D9D9),
+                                                hintStyle: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyLarge!
+                                                    .copyWith(
+                                                      color: const Color(
+                                                          0xffD9D9D9),
                                                     ),
                                                 hintText: 'Password',
                                                 fillColor: Colors.white70,
                                               ),
-                                              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge!
+                                                  .copyWith(
                                                     color: Colors.black,
                                                   ),
                                               autofocus: false,
@@ -286,7 +383,8 @@ class RegisterScreen extends ConsumerWidget {
                                       child: ElevatedButton(
                                         ///(loginFormState.isPure || loginFormState.isNotValid || !loginFormState.submissionStatus.isInitial)
                                         onPressed: () {
-                                          AutoRouter.of(context).pop();
+                                          AutoRouter.of(context).back();
+                                          // AutoRouter.of(context).pop();
                                           /*AutoRouter.of(context).pushAndPopUntil(
                                           const FreshBasketHomeRoute(),
                                           predicate: (_) => false,
@@ -298,21 +396,30 @@ class RegisterScreen extends ConsumerWidget {
                                             side: isReadyForSubmit
                                                 ? const BorderSide(
                                                     width: 1, // thickness
-                                                    color: Colors.black, // color
+                                                    color:
+                                                        Colors.black, // color
                                                   )
                                                 : BorderSide.none,
                                             // border radius
-                                            borderRadius: BorderRadius.circular(10),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
                                           ),
-                                          padding: const EdgeInsets.symmetric(vertical: 20),
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 20),
                                           //MaterialStateProperty.all<EdgeInsets>(EdgeInsets.symmetric(vertical: 20)),
-                                          backgroundColor: MaterialStateColor.resolveWith(
-                                            (states) => isReadyForSubmit ? Colors.green : Colors.grey.shade400,
+                                          backgroundColor:
+                                              MaterialStateColor.resolveWith(
+                                            (states) => isReadyForSubmit
+                                                ? Colors.green
+                                                : Colors.grey.shade400,
                                           ),
                                         ),
                                         child: Text(
                                           "Register",
-                                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.white),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyLarge!
+                                              .copyWith(color: Colors.white),
                                         ),
                                       ),
                                     ),

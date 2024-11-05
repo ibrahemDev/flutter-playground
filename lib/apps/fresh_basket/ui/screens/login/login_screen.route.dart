@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_playground/apps/fresh_basket/features/auth/states/login_notifier.dart';
 import 'package:flutter_playground/apps/fresh_basket/routes/fresh_basket_app_route.dart';
 import 'package:flutter_playground/features/utile/state/show_password_state_provider.dart';
-import 'package:flutter_playground/ui/routes/app_route.dart';
+import 'package:flutter_playground/routes/app_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:formz/formz.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -24,8 +24,10 @@ class LoginScreen extends ConsumerWidget {
             leading: IconButton(
               icon: Icon(Icons.arrow_back),
               onPressed: () {
-                freshBasketAppRouter.navigatorKey.currentState!.pop();
-                appRouter.navigatorKey.currentState!.pop();
+                //ref.read(freshBasketAppRouterProvider).popForced();
+                mainAppRouter.popForced();
+                //ref.read(mainAppRouterProvider).popForced();
+                //ref.read(mainAppRouterProvider).navigatorKey.currentState!.pop();
               },
             ),
             backgroundColor: Colors.white,

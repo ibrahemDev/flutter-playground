@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_playground/apps/fresh_basket/routes/fresh_basket_app_route.dart';
-import 'package:flutter_playground/ui/routes/app_route.dart';
+import 'package:flutter_playground/routes/app_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'dart:math' as math;
@@ -211,11 +211,15 @@ class ProfilePageWidget extends ConsumerWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: InkWell(
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                      onTap: () {
-                        freshBasketAppRouter.navigatorKey.currentState!.pop();
-                        appRouter.navigatorKey.currentState!.pop();
+                    child: GestureDetector(
+                      //borderRadius: BorderRadius.all(Radius.circular(8)),
+                      onTap: () async {
+                        //ref.read(freshBasketAppRouterProvider).navigatorKey.currentState!.pop();
+                        //ref.read(mainAppRouterProvider).navigatorKey.currentState!.pop();
+                        //ref.read(freshBasketAppRouterProvider).popUntilRoot();
+
+                        //AutoRouter.of(context).popUntilRouteWithName("/");
+                        mainAppRouter.popForced();
                       },
                       child: Container(
                         margin: EdgeInsets.symmetric(horizontal: 24, vertical: 14),

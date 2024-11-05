@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/apps/car_booking/features/rent_cars/models/rent_car_view_model.dart';
 import 'package:flutter_playground/apps/car_booking/features/rent_cars/states/favourites_Rents_notifier.dart';
@@ -28,7 +27,7 @@ class DetailsScreen extends ConsumerWidget {
         backgroundColor: Colors.white,
         leading: IconButton(
             onPressed: () {
-              AutoRouter.of(context).pop();
+              AutoRouter.of(context).back();
             },
             icon: Icon(
               Icons.arrow_back_ios,
