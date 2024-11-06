@@ -91,6 +91,8 @@ flutter:
     - assest/apps/car_booking/images/icons/
     - assest/apps/car_booking/images/cars/
     - assest/apps/car_booking/images/cars_logo/
+    - assest/apps/coffe_shop/images/
+    
 
     - assest/images/
     - assest/images/avatars/

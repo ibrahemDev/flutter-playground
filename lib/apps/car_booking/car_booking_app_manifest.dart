@@ -12,4 +12,5 @@ const carBookingAppManifest = VirtualAppManifestModel(
   routePath: "",
   runApp: mainCarBooking,
   getRouter: getCarBookingRouter,
+  appIconType: "png",
 );

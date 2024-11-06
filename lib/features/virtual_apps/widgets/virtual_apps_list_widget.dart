@@ -28,6 +28,8 @@ class VirtualAppsListWidget extends ConsumerWidget {
     return virtualApps.map((virtualApp) {
       return AppTileSectionWidget(
         virtualApp: virtualApp,
+        width: 120,
+        height: 108,
         onTap: () {
           mainAppRouter.push(VirtualAppDetailsRoute(virtualAppModel: virtualApp));
           //AutoRouter.of(context).pushNamed(VirtualAppDetailsScreen.routeName);

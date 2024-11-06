@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_playground/features/virtual_apps/data/models/virtual_app_manifest_model.dart';
 import 'package:flutter_playground/features/virtual_apps/widgets/app_tile_section_widget.dart';
 
@@ -22,7 +23,11 @@ class VirtualAppDetailsScreen extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
               child: Row(
                 children: [
-                  AppTileSectionWidget(virtualApp: virtualAppModel),
+                  AppTileSectionWidget(
+                    virtualApp: virtualAppModel,
+                    width: 140,
+                    height: 128,
+                  ),
                   //AppTileSectionWidget(virtualApp: virtualAppModel),
                   Expanded(
                     child: Container(
@@ -48,7 +53,10 @@ class VirtualAppDetailsScreen extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.symmetric(horizontal: 15),
                     child: ElevatedButton(
-                      onPressed: virtualAppModel.runApp,
+                      onPressed: () {
+                        HapticFeedback.lightImpact();
+                        virtualAppModel.runApp();
+                      },
                       child: Text(
                         'Open App',
                         style: Theme.of(context).textTheme.bodyLarge,

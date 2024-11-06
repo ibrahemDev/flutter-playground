@@ -11,6 +11,7 @@ class VirtualAppManifestModel extends Equatable {
   final String routePath;
   final void Function() runApp;
   final RootStackRouter? Function() getRouter;
+  final String appIconType;
 
   const VirtualAppManifestModel({
     required this.name,
@@ -22,6 +23,7 @@ class VirtualAppManifestModel extends Equatable {
     required this.routePath,
     required this.runApp,
     required this.getRouter,
+    required this.appIconType,
   });
   VirtualAppManifestModel copyWith({
     String? name,
@@ -33,6 +35,7 @@ class VirtualAppManifestModel extends Equatable {
     String? routePath,
     void Function()? runApp,
     //RootStackRouter? Function()? getRouter,
+    String? appIconType,
   }) {
     return VirtualAppManifestModel(
       name: name ?? this.name,
@@ -44,9 +47,10 @@ class VirtualAppManifestModel extends Equatable {
       routePath: routePath ?? this.routePath,
       runApp: runApp ?? this.runApp,
       getRouter: getRouter, // TODO fix nullable copy with
+      appIconType: appIconType ?? this.appIconType,
     );
   }
 
   @override
-  List<Object> get props => [name, img, description, source, designSource, forgroundColor, routePath, runApp, getRouter];
+  List<Object> get props => [name, img, description, source, designSource, forgroundColor, routePath, runApp, getRouter, appIconType];
 }

@@ -11,4 +11,5 @@ const freshBasketAppManifest = VirtualAppManifestModel(
   routePath: "/FreshBasketApp",
   runApp: mainFreshBasket,
   getRouter: getFreshBasketRouter,
+  appIconType: "png",
 );
